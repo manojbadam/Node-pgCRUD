@@ -1,0 +1,65 @@
+<html ng-app="app">
+  <head>
+    <script data-require="angular.js@*" data-semver="1.3.0-rc2" src="https://code.angularjs.org/1.3.0-rc.2/angular.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="simpleUI.js"></script>
+  </head>
+  <body>
+  	<div class="container" ng-controller="DataController">
+  		<div class="row">
+  			<div class="col-md-12">
+  				<H1>Simple CRUD Example for PostgreSQL</H1>
+  			</div>
+  			<div style="margin-top:5px;">
+  				<!--empty -->
+  			</div>
+        <button class="btn btn-primary" ng-click="getRecords()">Refresh List</button>
+        <div style="margin-top:15px;">
+          <!--empty -->
+        </div>
+  			<table class="table-condensed table-striped table-bordered">
+  				<thead>
+  					<tr>
+  						<th>First Name</th>
+  						<th>Second Name</th>
+  						<th></th>
+  						<th></th>
+  					</tr>	
+  				</thead>
+  				<tbody>
+  					<tr ng-repeat="row in data">
+  						<td><input type="text" ng-model="row.fname" /></td>
+  						<td><input type="text" ng-model="row.lname" /></td>
+  						<td><button class="btn-link" ng-click="update(row)">Update</button></td>
+  						<td><button class="btn-link" ng-click="Delete(row)">Delete</button></td>
+  					</tr>
+  				</tbody>
+  			</table>
+  			<div style="margin-top:20px;">
+  				<!--empty -->
+  				<!-- <span>{{data | json}}</span> -->
+  			</div>
+        <div style="margin-top:20px;">
+          <!--empty -->
+        </div>
+        <div class="form-group row">
+            <!-- <label for="inputKey">First Name</label> -->
+          <div class="col-md-2">
+            <input type="text" class="input-small" placeholder="First Name" id="inputKey" ng-model="newFname">
+          </div>
+            <!-- <label for="inputValue">Second Name</label> -->
+          <div class="col-md-2">
+            <input type="text" class="input-small" placeholder="Second Name" id="inputValue" ng-model="newLname">
+          </div>  
+            <button class="btn-sm btn-success" ng-click="Insert(newFname,newLname)">Submit</button>
+        </div>
+        <div style="margin-top:20px;">
+          <!--empty -->
+          <!-- <span>{{data | json}}</span> -->
+          <span>{{resultHTML}}</span>
+        </div>
+  		</div>
+  	</div>
+  </body>

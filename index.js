@@ -1,8 +1,8 @@
 var pg = require("pg")
 var http = require("http")
 var port = 5433;
-var data;
-//var data = [{"name":"Basava", "Sex": "Male"},{"name":"Manoj", "Sex":"Male"},{"name":"Sai","Sex":"Male"}];
+//var data;
+var data = [{"name":"Basava", "Sex": "Male"},{"name":"Manoj", "Sex":"Male"},{"name":"Sai","Sex":"Male"}];
 
 var writeResults = function(req,res){
 	console.log("Write Results");
@@ -18,7 +18,7 @@ var getRecords = function(req,res,callback){
 	var client = new pg.Client(conString);
 	client.connect();
 
-	var query = client.query('Select "FirstWord","SecondWord","key",0 as "DbUpdate" from "Employee"');
+	var query = client.query('select id,fname,lname,0 as "Dbupdate" from "Student"  order by id');
 		query.on("row", function (row, result) {
 			result.addRow(row);
 	});
@@ -28,8 +28,16 @@ var getRecords = function(req,res,callback){
 			//console.log(data);
 			callback(req,res);
 	});
+};
 
-};	
+var updateRecords = function(req,res,callback){
+	console.log("update Records");
+	//var conString = "pg://postgres:3267635@localhost:5432/TestDB";
+	//var client = new pg.Client(conString);
+	client.connect();
+	console.log(req.body);
+	//var query =  
+}	
 
 http.createServer(function(req, res) {
 	if(req.method == 'GET') {
@@ -37,5 +45,9 @@ http.createServer(function(req, res) {
 	getRecords(req,res,writeResults);
 	//list_data(req,res);
 	//setInterval(list_records,3000);
-	}}).listen(port);
+	}
+	if(req.method == 'POST'){
+		updateRecords(req,res,writeResults)
+	}
+}).listen(port);
 	console.log("Connected to " + port + "   localhost" );

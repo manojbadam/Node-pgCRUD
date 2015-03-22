@@ -2,7 +2,7 @@
   "name": "PostgreSample",
   "version": "1.0.0",
   "description": "Testing the PostgreSQL access from NodeJS",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,8 @@
   "author": "manoj badam",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.12.3"
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "pg": "^4.3.0"
   }
 }

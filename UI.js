@@ -1,4 +1,4 @@
-var app = angular.module("app",[]);
+var app = angular.module("app",["xeditable"]);
 
 app.controller("DataController",function($scope,$http){
 	$http.get("http://localhost:5433/").then(function(res){

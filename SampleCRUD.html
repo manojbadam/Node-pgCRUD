@@ -4,6 +4,8 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
+	<script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="UI.js"></script>
   </head>
   <body>
@@ -26,13 +28,17 @@
   				</thead>
   				<tbody>
   					<tr ng-repeat="row in data">
-  						<td>{{row.FirstWord}}</td>
-  						<td>{{row.SecondWord}}</td>
-  						<td><button class="btn-link" click="Edit(row.key)">Edit</button></td>
-  						<td><button class="btn-link" click="Delete(row.key)">Delete</button></td>
+  						<td><a href="#" editable-text="row.fname">{{ row.fname || "empty" }}</a></td>
+  						<td>{{row.lname}}</td>
+  						<td><button class="btn-link" click="Edit(row.id)">Edit</button></td>
+  						<td><button class="btn-link" click="Delete(row.id)">Delete</button></td>
   					</tr>
   				</tbody>
   			</table>
+  			<div style="margin-top:20px;">
+  				<!--empty -->
+  				<span>{{data | json}}</span>
+  			</div>
   		</div>
   	</div>
   </body>
