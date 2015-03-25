@@ -30,7 +30,7 @@ var writeResults = function(req,res){
 
 var getRecords = function(req,res,callback){
 	console.log("Get Records");
-	var conString = "pg://postgres:12345@localhost:5432/TestDB";
+	var conString = "pg://postgres:3267635@localhost:5432/TestDB";
 	var client = new pg.Client(conString);
 	client.connect();
 
@@ -47,7 +47,7 @@ var getRecords = function(req,res,callback){
 };
 
 var updateRecords = function(req,res){
-	var conString = "pg://postgres:12345@localhost:5432/TestDB";
+	var conString = "pg://postgres:3267635@localhost:5432/TestDB";
 	var client = new pg.Client(conString);
 	client.connect();
 	//console.log(req.body.fname);
@@ -73,7 +73,7 @@ var insertRecords = function(req,res)
 {
 	console.log("In insert");
    // Connect to DB
-   var conString = "pg://postgres:12345@localhost:5432/TestDB";
+   var conString = "pg://postgres:3267635@localhost:5432/TestDB";
    var client = new pg.Client(conString);
    client.connect(); 
 
@@ -97,7 +97,7 @@ var deleteRecords = function(req,res){
 	console.log("In Delete");
 
 	// Connect to DB
-	var conString = "pg://postgres:12345@localhost:5432/TestDB";
+	var conString = "pg://postgres:3267635@localhost:5432/TestDB";
    	var client = new pg.Client(conString);
    	client.connect(); 
 
