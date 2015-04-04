@@ -32,7 +32,7 @@ var writeResults = function(req,res){
 };
 
 app.get('/getMatcheDetails',function(req,res){
-	var conString = "pg://postgres:12345@localhost:5432/TestDB";
+	var conString = "pg://postgres:3267635@localhost:5432/TestDB";
 	var client = new pg.Client(conString);
 	client.connect();
 
@@ -52,7 +52,7 @@ app.get('/getMatcheDetails',function(req,res){
 
 app.post('/postMatchPred',function(req,res){
 	console.log("Enter Post");
-	var conString = "pg://postgres:12345@localhost:5432/TestDB";
+	var conString = "pg://postgres:3267635@localhost:5432/TestDB";
 	var client = new pg.Client(conString);
 	client.connect();
 
